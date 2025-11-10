@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example.swrl</groupId>
+    <artifactId>date-builtins</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>date-builtins</name>
+    <description>Custom SWRLAPI date extraction built-ins (year, month, day, now*) for Protégé</description>
+    <url>https://example.com/date-builtins</url>
+
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <swrlapi.version>2.0.8</swrlapi.version>
+        <owlapi.version>5.5.0</owlapi.version>
+    </properties>
+
+    <dependencies>
+        <!-- SWRLAPI core -->
+        <dependency>
+            <groupId>edu.stanford.swrl</groupId>
+            <artifactId>swrlapi</artifactId>
+            <version>${swrlapi.version}</version>
+        </dependency>
+        <!-- Drools-based rule engine (optional at runtime for reasoning) -->
+        <dependency>
+            <groupId>edu.stanford.swrl</groupId>
+            <artifactId>swrlapi-drools-engine</artifactId>
+            <version>${swrlapi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- OWLAPI (pulled transitively, version override for clarity) -->
+        <dependency>
+            <groupId>net.sourceforge.owlapi</groupId>
+            <artifactId>owlapi-distribution</artifactId>
+            <version>${owlapi.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Checker Framework annotations (transitive, explicit for compilation) -->
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>3.42.0</version>
+        </dependency>
+        <!-- JUnit for optional local smoke tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.3.0</version>
+            </plugin>
+        </plugins>
+    </build>
+</project>

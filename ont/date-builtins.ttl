@@ -1,0 +1,19 @@
+@prefix : <http://example.com/swrl/date#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.com/swrl/date>
+  a owl:Ontology ;
+  rdfs:label "Date Built-ins prefix ontology"@en ;
+  rdfs:comment "Declares the date: prefix for SWRL built-ins. Import this so 'date:' prefix is available."@en .
+
+# Optional: provide annotation properties to document the built-ins
+:year a owl:AnnotationProperty ; rdfs:label "date:year(y, d)"@en .
+:month a owl:AnnotationProperty ; rdfs:label "date:month(m, d)"@en .
+:day a owl:AnnotationProperty ; rdfs:label "date:day(dy, d)"@en .
+:nowDate a owl:AnnotationProperty ; rdfs:label "date:nowDate(d)"@en .
+:nowYear a owl:AnnotationProperty ; rdfs:label "date:nowYear(y)"@en .
+:nowMonth a owl:AnnotationProperty ; rdfs:label "date:nowMonth(m)"@en .
+:nowDay a owl:AnnotationProperty ; rdfs:label "date:nowDay(dy)"@en .

@@ -1,0 +1,18 @@
+# Examples of using the custom date built-ins
+# Prefix declaration (Protégé prefix manager):
+#   Prefix: date
+#   Namespace: http://example.com/swrl/date#
+
+# Extract year, month, day from a bound date literal
+# Suppose :Event(?e) ^ :hasDate(?e, "2025-11-10"^^xsd:date)
+# Rule snippet:
+#   :hasDate(?e, ?d) ^ date:year(?y, ?d) ^ date:month(?m, ?d) ^ date:day(?dy, ?d) -> :hasDateYear(?e, ?y), :hasDateMonth(?e, ?m), :hasDateDay(?e, ?dy)
+
+# Get today's components
+#   date:nowYear(?currentYear) ^ date:nowMonth(?currentMonth) ^ date:nowDay(?currentDay) -> :TodayFacts(:today)
+
+# Bind today's date
+#   date:nowDate(?today) -> :TodayDate(?today)
+
+# Checking against an expected year
+#   date:year(2025, ?d) -> :InYear2025(?d)
